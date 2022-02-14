@@ -4,23 +4,22 @@ import PropTypes from 'prop-types';
 const propTypes = {
     img: PropTypes.string.isRequired,
     alt: PropTypes.string,
-    title: PropTypes.string,
-    text: PropTypes.string,
+    title: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
     styles: PropTypes.object
 }
 
 const defaultProps = {
     styles: {
         container: {
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            zIndex: 10
+            display: 'grid',
+            zIndex: 10,
+            maxWidth: '250px',
+            border: '1px solid #666666',
+            padding: 15,
+            margin: 20
         },
         img: {
-            minWidth: 200,
-            minHeight: 200,
             width: '100%',
             height: '100%'
         },
@@ -28,17 +27,16 @@ const defaultProps = {
            fontSize: 24,
            color: '#666666',
            fontFamily: 'sans-serif',
-           fontWeight: 'bold'
+           fontWeight: 'bold',
+           textAlign: 'center',
+           padding: 10
         },
         text: {
             fontSize: 16,
             color: '#000000',
             fontFamily: 'serif',
         }
-    }
-}
-
-const defaultValues = {
+    },
     img: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png',
     alt: '',
     title: 'Titulo do Card',
@@ -51,13 +49,13 @@ class CardComponent extends React.Component {
     }
     
     render() {
-        const styles = this.props.styles || {};
+        const styles = {...this.props.styles, ...defaultProps.styles} || {};
 
         return (
             <div style={styles.container}>
-                <img style={styles.img} src={this.props.img || defaultValues.img} alt={this.props.alt || defaultValues.alt} />
+                <img style={styles.img} src={this.props.img || defaultProps.img} alt={this.props.alt || defaultProps.alt} />
                 <span style={styles.title}>{this.props.title || defaultProps.title}</span>
-                <p style={styles.text}>{this.props.text || defaultValues.text}</p>
+                <p style={styles.text}>{this.props.text || defaultProps.text}</p>
             </div>
         );
     }
@@ -65,6 +63,5 @@ class CardComponent extends React.Component {
 
 CardComponent.propTypes = propTypes;
 CardComponent.defaultProps = defaultProps;
-CardComponent.defaultValues = defaultValues;
 
 export default CardComponent;

@@ -1,6 +1,6 @@
 {
   "name": "tech-demo-component",
-  "version": "1.1.0",
+  "version": "1.1.4",
   "description": "base component used in company tech-demo",
   "main": "lib/index.js",
   "scripts": {
