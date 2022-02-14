@@ -8,6 +8,9 @@ module.exports = {
         filename: 'index.js',
         libraryTarget: 'commonjs2'
     },
+    devServer: {
+        static: './lib',
+      },
     module: {
         rules: [
             {

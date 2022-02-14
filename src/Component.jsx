@@ -9,18 +9,41 @@ const propTypes = {
 
 const defaultProps = {
     styles: {
-        label: {
-            fontFamily: 'Comic Sans MS',
-            color: 'green'
+        container: {
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: 10
         },
-        input: {
-            background: '#ddd',
-            border: '1px solid red'
+        img: {
+            minWidth: 200,
+            minHeight: 200,
+            width: '100%',
+            height: '100%'
+        },
+        title: {
+           fontSize: 24,
+           color: '#666666',
+           fontFamily: 'sans-serif',
+           fontWeight: 'bold'
+        },
+        text: {
+            fontSize: 16,
+            color: '#000000',
+            fontFamily: 'serif',
         }
     }
 }
 
-class BoilerplateComponent extends React.Component {
+const defaultValues = {
+    img: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png',
+    alt: '',
+    title: 'Titulo do Card',
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tempus, orci quis fringilla scelerisque, neque orci gravida diam, in sagittis nisi nunc eget metus.'
+}
+
+class CardComponent extends React.Component {
     constructor(props) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
@@ -34,15 +57,17 @@ class BoilerplateComponent extends React.Component {
         const styles = this.props.styles || {};
 
         return (
-            <div>
-                <label style={styles.label}>{this.props.label}</label>
-                <input type="text" style={styles.input} onChange={this.handleChange} />
+            <div style={styles.container}>
+                <img style={styles.img} src={this.props.img || defaultValues.img} alt={this.props.alt || defaultValues.alt} />
+                <span style={styles.title}>{this.props.title || defaultProps.title}</span>
+                <p style={styles.text}>{this.props.text || defaultValues.text}</p>
             </div>
         );
     }
 }
 
-BoilerplateComponent.propTypes = propTypes;
-BoilerplateComponent.defaultProps = defaultProps;
+CardComponent.propTypes = propTypes;
+CardComponent.defaultProps = defaultProps;
+CardComponent.defaultValues = defaultValues;
 
-export default BoilerplateComponent;
+export default CardComponent;
