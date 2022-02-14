@@ -1,8 +1,8 @@
 {
   "name": "tech-demo-component",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "base component used in company tech-demo",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack"
