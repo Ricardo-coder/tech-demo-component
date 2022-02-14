@@ -2,8 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const propTypes = {
-    label: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired,
+    img: PropTypes.string.isRequired,
+    alt: PropTypes.string,
+    title: PropTypes.string,
+    text: PropTypes.string,
     styles: PropTypes.object
 }
 
@@ -46,11 +48,6 @@ const defaultValues = {
 class CardComponent extends React.Component {
     constructor(props) {
         super(props);
-        this.handleChange = this.handleChange.bind(this);
-    }
-
-    handleChange(e) {
-        this.props.onChange(e.target.value);
     }
     
     render() {
