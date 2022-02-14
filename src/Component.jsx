@@ -9,7 +9,7 @@ const propTypes = {
     styles: PropTypes.object
 }
 
-const defaultProps = {
+export const defaultProps = {
     styles: {
         container: {
             display: 'grid',
@@ -49,7 +49,24 @@ class CardComponent extends React.Component {
     }
     
     render() {
-        const styles = {...this.props.styles, ...defaultProps.styles} || {};
+        const styles = {
+            container: {
+                ...defaultProps.styles.container,
+                ...this.props.styles.container
+            },
+            img: {
+                ...defaultProps.styles.img,
+                ...this.props.styles.img
+            },
+            title: {
+                ...defaultProps.styles.title,
+                ...this.props.styles.title
+            },
+            text: {
+                ...defaultProps.styles.text,
+                ...this.props.styles.text
+            }
+        } || {};
 
         return (
             <div style={styles.container}>
