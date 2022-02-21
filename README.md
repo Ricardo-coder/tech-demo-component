@@ -10,7 +10,7 @@ Exemplo de componente de Card genérico para utilização em projetos React, cri
 
 ### Etapa 2 - Importando o aplicativo e utilizando-o em seu projeto.
 
-```
+```js
 import React from 'react'
 import TechDemo from 'tech-demo-component'
 
@@ -46,6 +46,6 @@ export default Example
 | `alt` | `[string]` | Permite definir um alt a imagem. |
 | `title` | `[string]` | Exibe um titulo para o card. |
 | `text` | `[string]` | Exibe um parágrafo com o texto desejado no card. |
-| `style` | `[object]` | Recebe a estilização do componente, tendo como propriedades do objecto `container`, `img`, `title` e `text`. |
+| `style` | `[object]` | Recebe a estilização do componente, tendo como propriedades do objeto `container`, `img`, `title` e `text`. |
 
 **OBS: A inclusão de novos estilos dentro do objeto style não remove a estilização base, porém esta pode ser sobrescrita**
